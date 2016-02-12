@@ -13,7 +13,7 @@ var mysql = require('mysql');
 
 var count = '100';
 var name = '50582132228315';
-var zaprosDliaHeshaFirst = "application_key=CBAJDNALEBABABABAcount="+countQ+"method=group.getMemberssession_key=tkn1ogczholO7pEKTaDCefnmDmvUgQBDvBfSv40LkpuPC1W0M1RPnujgIVOvPNOI9yvxR7uid=" + name + "1d946ccbaa0facc5f3011d3cfeaab9d6";
+var zaprosDliaHeshaFirst = "application_key=CBAJDNALEBABABABAcount="+count+"method=group.getMemberssession_key=tkn1ogczholO7pEKTaDCefnmDmvUgQBDvBfSv40LkpuPC1W0M1RPnujgIVOvPNOI9yvxR7uid=" + name + "1d946ccbaa0facc5f3011d3cfeaab9d6";
 var hashFirst = crypto.createHash('md5').update(zaprosDliaHeshaFirst).digest("hex");
 var vkapiToken = "https://api.ok.ru/fb.do?application_key=CBAJDNALEBABABABA&method=group.getMembers&session_key=tkn1ogczholO7pEKTaDCefnmDmvUgQBDvBfSv40LkpuPC1W0M1RPnujgIVOvPNOI9yvxR7&uid="+name+"&count=" + count  + "&sig=" + hashFirst;
 var kolvo = 0;
@@ -34,12 +34,12 @@ function zapros(k, callback) {
 						id: text.members[i].userId,
 					};
 				console.log("k - " + k + "    i - " + i);
-				connection.query('insert into userid set ?', user, function (err, result) {
-						if (err) {
-							console.error(err);
-							return;
-						} 
-				});
+				//connection.query('insert into userid set ?', user, function (err, result) {
+				//		if (err) {
+				//			console.error(err);
+				//			return;
+				//		} 
+				//});
 				console.log(text.members[i].userId);
 				}
 		callback(k + 1);
